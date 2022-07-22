@@ -1,1 +1,0 @@
-import itemData from './imagedataitem'

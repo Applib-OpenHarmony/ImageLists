@@ -3,18 +3,9 @@ import {ImageData} from './imagedataitem'
 
 @Entry
 @Component
-struct standardImageList{
+struct wovenImageList{
   private images: any = router.getParams().images
-  private imgWidth: any = router.getParams().width
-  private imgHeight: any = router.getParams().height
-  private padding: any = router.getParams().padding
-
   private scroller: Scroller = new Scroller();
-
-//  getColumnsTemplate(imgWidth: string): string{
-//    var totalWidth =
-//  }
-
   build(){
     Column({space:5}){
       Flex({justifyContent:FlexAlign.Start}){
@@ -41,19 +32,41 @@ struct standardImageList{
       Grid(this.scroller){
         ForEach(this.images, (img: ImageData) =>{
           GridItem(){
-            Navigator({ target: 'pages/ImageScreen', type: NavigationType.Push }) {
-              Image(img.imagePath)
-                .objectFit(ImageFit.Fill)
-            }.params({showImage: img, targetPath:'pages/StandardImageList'})
+            Column(){
+              Navigator({ target: 'pages/ImageScreen', type: NavigationType.Push }) {
+                if(img.id%4 == 1) {
+                  Image(img.imagePath)
+                    .objectFit(ImageFit.Fill)
+                    .width('161vp')
+                    .height('167vp')
+                    .margin({ top: '33vp' })
+                }
+                else if(img.id%4 == 0){
+                  Image(img.imagePath)
+                    .objectFit(ImageFit.Fill)
+                    .width('161vp')
+                    .height('167vp')
+                    .margin({ top: '23vp' })
+                }
+                else{
+                  Image(img.imagePath)
+                    .objectFit(ImageFit.Fill)
+                    .width('161vp')
+                    .height('233vp')
+                }
+
+              }.params({showImage: img, target:'pages/WovenImageList'})
+
+              Text(img.title).height('19vp').fontSize('16vp').fontFamily("Times").fontWeight(FontWeight.Bold).margin({top:'10vp', bottom:'5vp'})
+            }.width('100%').height('100%').alignItems(HorizontalAlign.Start)
+
           }
-          .width(this.imgWidth)
-          .height(this.imgHeight)
-          .padding(this.padding)
+          .width('161vp')
+          .height('280vp')
         })
       }
-      .columnsTemplate('1fr 1fr 1fr')
-      .margin({left:'5vp',right:'5vp'})
-
+      .columnsTemplate('1fr 1fr')
+      .padding(5)
     }
   }
 }

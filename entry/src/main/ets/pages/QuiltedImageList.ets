@@ -3,17 +3,9 @@ import {ImageData} from './imagedataitem'
 
 @Entry
 @Component
-struct standardImageList{
+struct quiltedImageList{
   private images: any = router.getParams().images
-  private imgWidth: any = router.getParams().width
-  private imgHeight: any = router.getParams().height
-  private padding: any = router.getParams().padding
-
   private scroller: Scroller = new Scroller();
-
-//  getColumnsTemplate(imgWidth: string): string{
-//    var totalWidth =
-//  }
 
   build(){
     Column({space:5}){
@@ -38,21 +30,7 @@ struct standardImageList{
 
       }.width('100%').height('66vp').backgroundColor(Color.Blue)
 
-      Grid(this.scroller){
-        ForEach(this.images, (img: ImageData) =>{
-          GridItem(){
-            Navigator({ target: 'pages/ImageScreen', type: NavigationType.Push }) {
-              Image(img.imagePath)
-                .objectFit(ImageFit.Fill)
-            }.params({showImage: img, targetPath:'pages/StandardImageList'})
-          }
-          .width(this.imgWidth)
-          .height(this.imgHeight)
-          .padding(this.padding)
-        })
-      }
-      .columnsTemplate('1fr 1fr 1fr')
-      .margin({left:'5vp',right:'5vp'})
+
 
     }
   }

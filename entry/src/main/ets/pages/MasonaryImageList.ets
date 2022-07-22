@@ -3,17 +3,9 @@ import {ImageData} from './imagedataitem'
 
 @Entry
 @Component
-struct standardImageList{
+struct masonaryImageList{
   private images: any = router.getParams().images
-  private imgWidth: any = router.getParams().width
-  private imgHeight: any = router.getParams().height
-  private padding: any = router.getParams().padding
-
   private scroller: Scroller = new Scroller();
-
-//  getColumnsTemplate(imgWidth: string): string{
-//    var totalWidth =
-//  }
 
   build(){
     Column({space:5}){
@@ -42,17 +34,13 @@ struct standardImageList{
         ForEach(this.images, (img: ImageData) =>{
           GridItem(){
             Navigator({ target: 'pages/ImageScreen', type: NavigationType.Push }) {
-              Image(img.imagePath)
-                .objectFit(ImageFit.Fill)
-            }.params({showImage: img, targetPath:'pages/StandardImageList'})
-          }
-          .width(this.imgWidth)
-          .height(this.imgHeight)
-          .padding(this.padding)
+              Image(img.imagePath).width('100%').objectFit(ImageFit.Contain).padding(10)
+            }.params({showImage: img, targetPath:'pages/MasonaryImageList'})
+          }.margin({top:4,bottom:4})
         })
       }
-      .columnsTemplate('1fr 1fr 1fr')
-      .margin({left:'5vp',right:'5vp'})
+      .columnsTemplate('1fr')
+      .width('50%')
 
     }
   }
