@@ -11,10 +11,6 @@ struct standardImageList{
 
   private scroller: Scroller = new Scroller();
 
-//  getColumnsTemplate(imgWidth: string): string{
-//    var totalWidth =
-//  }
-
   build(){
     Column({space:5}){
       Flex({justifyContent:FlexAlign.Start}){

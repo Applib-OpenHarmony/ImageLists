@@ -30,34 +30,34 @@ struct wovenImageList{
       }.width('100%').height('66vp').backgroundColor(Color.Blue)
 
       Grid(this.scroller){
-        ForEach(this.images, (img: ImageData) =>{
+        ForEach([...new Array(this.images.length).keys()], (index: number) =>{
           GridItem(){
             Column(){
               Navigator({ target: 'pages/ImageScreen', type: NavigationType.Push }) {
-                if(img.id%4 == 1) {
-                  Image(img.imagePath)
+                if((index+1)%4 == 1) {
+                  Image(this.images[index].imagePath)
                     .objectFit(ImageFit.Fill)
                     .width('161vp')
                     .height('167vp')
                     .margin({ top: '33vp' })
                 }
-                else if(img.id%4 == 0){
-                  Image(img.imagePath)
+                else if((index+1)%4 == 0){
+                  Image(this.images[index].imagePath)
                     .objectFit(ImageFit.Fill)
                     .width('161vp')
                     .height('167vp')
                     .margin({ top: '23vp' })
                 }
                 else{
-                  Image(img.imagePath)
+                  Image(this.images[index].imagePath)
                     .objectFit(ImageFit.Fill)
                     .width('161vp')
                     .height('233vp')
                 }
 
-              }.params({showImage: img, target:'pages/WovenImageList'})
+              }.params({showImage: this.images[index], target:'pages/WovenImageList'})
 
-              Text(img.title).height('19vp').fontSize('16vp').fontFamily("Times").fontWeight(FontWeight.Bold).margin({top:'10vp', bottom:'5vp'})
+              Text(this.images[index].title).height('19vp').fontSize('16vp').fontFamily("Times").fontWeight(FontWeight.Bold).margin({top:'5vp', left:'5vp',bottom:'5vp'})
             }.width('100%').height('100%').alignItems(HorizontalAlign.Start)
 
           }

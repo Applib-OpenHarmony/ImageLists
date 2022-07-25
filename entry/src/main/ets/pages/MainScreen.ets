@@ -25,14 +25,14 @@ struct DemoScreen{
   ]
 
   private masonary_images: ImageData[] = [
-    new ImageData(1, "Picture_Title", $r("app.media.masonary_img_1")),
-    new ImageData(2, "Picture_Title", $r("app.media.masonary_img_2")),
-    new ImageData(3, "Picture_Title", $r("app.media.masonary_img_3")),
-    new ImageData(4, "Picture_Title", $r("app.media.masonary_img_4")),
-    new ImageData(5, "Picture_Title", $r("app.media.masonary_img_5")),
-    new ImageData(6, "Picture_Title", $r("app.media.masonary_img_6")),
-    new ImageData(7, "Picture_Title", $r("app.media.masonary_img_7")),
-    new ImageData(8, "Picture_Title", $r("app.media.masonary_img_8")),
+    new ImageData(1, "Picture_Title", $r("app.media.masonary_img_1"),0, '224vp'),
+    new ImageData(2, "Picture_Title", $r("app.media.masonary_img_2"),0, '152vp'),
+    new ImageData(3, "Picture_Title", $r("app.media.masonary_img_3"),0, '112vp'),
+    new ImageData(4, "Picture_Title", $r("app.media.masonary_img_4"),0, '152vp'),
+    new ImageData(5, "Picture_Title", $r("app.media.masonary_img_5"),0, '224vp'),
+    new ImageData(6, "Picture_Title", $r("app.media.masonary_img_6"),0, '224vp'),
+    new ImageData(7, "Picture_Title", $r("app.media.masonary_img_7"),0, '152vp'),
+    new ImageData(8, "Picture_Title", $r("app.media.masonary_img_8"),0, '184vp'),
   ]
   build(){
     Column({space:5}){
@@ -64,7 +64,7 @@ struct DemoScreen{
         Text('Go to masonary image lists page')
           .fontSize(20).width('100%').textAlign(TextAlign.Center)
       }
-      .params({ images: this.masonary_images })
+      .params({ images: this.masonary_images, padding:5 })
     }
   }
 }
