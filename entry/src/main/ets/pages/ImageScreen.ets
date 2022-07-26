@@ -1,5 +1,4 @@
 import router from '@system.router'
-import {ImageData} from './imagedataitem'
 
 @Entry
 @Component

@@ -1,5 +1,4 @@
 import router from '@system.router'
-import {ImageData} from './imagedataitem'
 
 @Entry
 @Component
@@ -26,44 +25,47 @@ struct masonaryImageList{
           Row(){
             Button({type:ButtonType.Circle}){
               Image($r("app.media.dotmenu")).width('20vp').height('20vp').objectFit(ImageFit.Contain)
-            }.width('20vp').height('20vp').backgroundColor(Color.Blue)
+            }.width('20vp').height('20vp').backgroundColor("#a000e3")
           }.height('30vp')
         }.width('30%').margin({left:'15vp',top:'10vp'}).alignItems(HorizontalAlign.End)
 
-      }.width('100%').height('66vp').backgroundColor(Color.Blue)
+      }.width('100%').height('66vp').backgroundColor("#a000e3")
 
-      Row(){
-        Column(){
-          ForEach([...new Array(this.images.length).keys()], (index: number) =>{
-            if((index+1)%2!=0){
-              Stack({alignContent:Alignment.BottomStart}){
-                Navigator({ target: 'pages/ImageScreen', type: NavigationType.Push }) {
-                  Image(this.images[index].imagePath).width('100%').height(this.images[index].height)
-                }.params({ showImage: this.images[index], targetPath: 'pages/MasonaryImageList' })
-                Row(){
-                  Text(this.images[index].title).fontSize('12fp').fontWeight(FontWeight.Bold).fontColor(Color.White).padding(7)
-                }.width('100%').height('25vp').backgroundColor(Color.Black).opacity(0.5)
-              }.padding(this.padding)
-            }
-          })
-        }
-        .width('50%')
-        Column(){
-          ForEach([...new Array(this.images.length).keys()], (index: number) =>{
-            if((index+1)%2==0){
-              Stack({alignContent:Alignment.BottomStart}){
-                Navigator({ target: 'pages/ImageScreen', type: NavigationType.Push }) {
-                  Image(this.images[index].imagePath).width('100%').height(this.images[index].height)
-                }.params({ showImage: this.images[index], targetPath: 'pages/MasonaryImageList' })
-                Row(){
-                  Text(this.images[index].title).fontSize('12fp').fontWeight(FontWeight.Bold).fontColor(Color.White).padding(7)
-                }.width('100%').height('25vp').backgroundColor(Color.Black).opacity(0.5)
-              }.padding(this.padding)
-            }
-          })
-        }
-        .width('50%')
-      }.height('100%').margin({top:10,left:5,right:5,bottom:10}).alignItems(VerticalAlign.Top)
+      Scroll(this.scroller){
+        Row(){
+          Column(){
+            ForEach([...new Array(this.images.length).keys()], (index: number) =>{
+              if((index+1)%2!=0){
+                Stack({alignContent:Alignment.BottomStart}){
+                  Navigator({ target: 'pages/ImageScreen', type: NavigationType.Push }) {
+                    Image(this.images[index].imagePath).width('100%').height(this.images[index].height)
+                  }.params({ showImage: this.images[index], targetPath: 'pages/MasonaryImageList' })
+                  Row(){
+                    Text(this.images[index].title).fontSize('12fp').fontWeight(FontWeight.Bold).fontColor(Color.White).padding(7)
+                  }.width('100%').height('25vp').backgroundColor(Color.Black).opacity(0.5)
+                }.padding(this.padding)
+              }
+            })
+          }
+          .width('50%')
+          Column(){
+            ForEach([...new Array(this.images.length).keys()], (index: number) =>{
+              if((index+1)%2==0){
+                Stack({alignContent:Alignment.BottomStart}){
+                  Navigator({ target: 'pages/ImageScreen', type: NavigationType.Push }) {
+                    Image(this.images[index].imagePath).width('100%').height(this.images[index].height)
+                  }.params({ showImage: this.images[index], targetPath: 'pages/MasonaryImageList' })
+                  Row(){
+                    Text(this.images[index].title).fontSize('12fp').fontWeight(FontWeight.Bold).fontColor(Color.White).padding(7)
+                  }.width('100%').height('25vp').backgroundColor(Color.Black).opacity(0.5)
+                }.padding(this.padding)
+              }
+            })
+          }
+          .width('50%')
+        }.height('100%').margin({top:'5vp',left:'5vp',right:'5vp',bottom:'30vp'}).alignItems(VerticalAlign.Top)
+      }
+      .scrollable(ScrollDirection.Vertical).scrollBar(BarState.Off)
 
     }
   }

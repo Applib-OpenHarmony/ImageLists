@@ -1,5 +1,4 @@
 import router from '@system.router'
-import {ImageData} from './imagedataitem'
 
 @Entry
 @Component
@@ -23,11 +22,11 @@ struct wovenImageList{
           Row(){
             Button({type:ButtonType.Circle}){
               Image($r("app.media.dotmenu")).width('20vp').height('20vp').objectFit(ImageFit.Contain)
-            }.width('20vp').height('20vp').backgroundColor(Color.Blue)
+            }.width('20vp').height('20vp').backgroundColor("#a000e3")
           }.height('30vp')
         }.width('30%').margin({left:'15vp',top:'10vp'}).alignItems(HorizontalAlign.End)
 
-      }.width('100%').height('66vp').backgroundColor(Color.Blue)
+      }.width('100%').height('66vp').backgroundColor("#a000e3")
 
       Grid(this.scroller){
         ForEach([...new Array(this.images.length).keys()], (index: number) =>{
@@ -66,6 +65,7 @@ struct wovenImageList{
         })
       }
       .columnsTemplate('1fr 1fr')
+      .margin({bottom:'50vp'})
       .padding(5)
     }
   }
