@@ -1,11 +1,5 @@
 {
   "src": [
-    "pages/index",
-    "pages/MainScreen",
-    "pages/StandardImageList",
-    "pages/QuiltedImageList",
-    "pages/ImageScreen",
-    "pages/WovenImageList",
-    "pages/MasonaryImageList"
+    "pages/MainScreen"
   ]
 }

@@ -16,7 +16,7 @@ struct standardImageList{
       Flex({justifyContent:FlexAlign.Start}){
         Column(){
           Row(){
-            Navigator({target:'pages/MainScreen',type:NavigationType.Back}){
+            Navigator({target:'ImageLists/entry/src/main/ets/pages/MainScreen',type:NavigationType.Back}){
               Image($r("app.media.back_icon")).width('25vp').height('20vp').objectFit(ImageFit.Contain)
             }.margin({right:'15vp'})
 
@@ -37,10 +37,10 @@ struct standardImageList{
       Grid(this.scroller){
         ForEach(this.images, (img: ImageData) =>{
           GridItem(){
-            Navigator({ target: 'pages/ImageScreen', type: NavigationType.Push }) {
+            Navigator({ target: './ImageScreen', type: NavigationType.Push }) {
               Image(img.imagePath)
                 .objectFit(ImageFit.Fill)
-            }.params({showImage: img, targetPath:'pages/StandardImageList'})
+            }.params({showImage: img, targetPath:'./StandardImageList'})
           }
           .width(this.imgWidth)
           .height(this.imgHeight)
@@ -52,4 +52,8 @@ struct standardImageList{
 
     }
   }
+}
+
+class StandImageListModel{
+
 }

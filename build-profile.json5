@@ -22,6 +22,10 @@
           ]
         }
       ]
+    },
+    {
+      "name": "ImageLists",
+      "srcPath": "./ImageLists"
     }
   ]
 }

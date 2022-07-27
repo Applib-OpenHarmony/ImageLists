@@ -31,4 +31,16 @@ export class ImageData {
   getPath(): Resource {
     return this.imagePath
   }
+
+  setImageWidth(width:number){
+    this.width=width
+  }
+
+  setImageHeight(height:number){
+    this.height=height
+  }
+
+  setImageSize(size:ImageSize){
+    this.size=size
+  }
 }

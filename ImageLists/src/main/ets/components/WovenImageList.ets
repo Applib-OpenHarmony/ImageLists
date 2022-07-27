@@ -10,7 +10,7 @@ struct wovenImageList{
       Flex({justifyContent:FlexAlign.Start}){
         Column(){
           Row(){
-            Navigator({target:'pages/MainScreen',type:NavigationType.Back}){
+            Navigator({target:'ImageLists/entry/src/main/ets/pages/MainScreen',type:NavigationType.Back}){
               Image($r("app.media.back_icon")).width('25vp').height('20vp').objectFit(ImageFit.Contain)
             }.margin({right:'15vp'})
 
@@ -32,7 +32,7 @@ struct wovenImageList{
         ForEach([...new Array(this.images.length).keys()], (index: number) =>{
           GridItem(){
             Column(){
-              Navigator({ target: 'pages/ImageScreen', type: NavigationType.Push }) {
+              Navigator({ target: './ImageScreen', type: NavigationType.Push }) {
                 if((index+1)%4 == 1) {
                   Image(this.images[index].imagePath)
                     .objectFit(ImageFit.Fill)
@@ -54,7 +54,7 @@ struct wovenImageList{
                     .height('233vp')
                 }
 
-              }.params({showImage: this.images[index], target:'pages/WovenImageList'})
+              }.params({showImage: this.images[index], target:'./WovenImageList'})
 
               Text(this.images[index].title).height('19vp').fontSize('16vp').fontFamily("Times").fontWeight(FontWeight.Bold).margin({top:'5vp', left:'5vp',bottom:'5vp'})
             }.width('100%').height('100%').alignItems(HorizontalAlign.Start)
