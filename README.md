@@ -55,7 +55,7 @@ private images: ImageData[] = [
 
 Standard image lists are best for items of equal importance. They have a uniform container size, ratio, and padding.
 
-![]()
+![Standard](./Screenshots/Standard.png)
 
 Sample code for using standard image lists container component
 ```
@@ -66,7 +66,7 @@ standardImageList({ images: this.images, padding: this.padding })
 
 Quilted image lists emphasize certain items over others in a collection. They create hierarchy using varied container sizes and ratios.
 
-![]()
+![Quilted](./Screenshots/Quilted.png)
 
 Sample code for using quilted image lists container component
 ```
@@ -77,7 +77,7 @@ quiltedImageList({ col1_images: this.col1_images, col2_images: this.col2_images,
 
 Woven image lists facilitate the browsing of peer content. They display content in containers of varying ratios to create a rhythmic layout.
 
-![]()
+![Woven](./Screenshots/Woven.png)
 
 Sample code for using woven image lists container component
 ```
@@ -88,7 +88,7 @@ wovenImageList({ images: this.images, padding: this.padding})
 
 Masonry image lists facilitate the browsing of uncropped peer content. Container heights are sized based on the image size.
 
-![]()
+![Masonary](./Screenshots/Masonary.png)
 
 Sample code for using masonary image lists container component
 ```
