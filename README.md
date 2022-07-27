@@ -1,7 +1,7 @@
 # ImageLists
 Image lists display a collection of images in an organized grid.
 
-![]()
+![ImageLists_GIF](./Screenshots/ImageLists.gif)
 
 ## Download & Install
 Install using npm
