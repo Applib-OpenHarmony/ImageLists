@@ -1,62 +1,58 @@
-import router from '@system.router'
+/*
+ * Copyright (C) 2022 Application Library Engineering Group
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-@Entry
+import { ImageData } from './imagedataitem'
+
 @Component
-struct wovenImageList{
-  private images: any = router.getParams().images
-  private scroller: Scroller = new Scroller();
-  build(){
-    Column({space:5}){
-      Flex({justifyContent:FlexAlign.Start}){
-        Column(){
-          Row(){
-            Navigator({target:'ImageLists/entry/src/main/ets/pages/MainScreen',type:NavigationType.Back}){
-              Image($r("app.media.back_icon")).width('25vp').height('20vp').objectFit(ImageFit.Contain)
-            }.margin({right:'15vp'})
+export struct wovenImageList {
+  @State images: ImageData[] = new Array()
+  private scroller: Scroller = new Scroller()
 
-            Text("Pictures").width('120vp').height('30vp').fontFamily("Arial").fontSize('28fp').fontWeight(FontWeight.Bold).fontColor(Color.White);
-          }
-        }.width('50%').margin({left:'15vp',top:'10vp'}).alignItems(HorizontalAlign.Start)
-
-        Column(){
-          Row(){
-            Button({type:ButtonType.Circle}){
-              Image($r("app.media.dotmenu")).width('20vp').height('20vp').objectFit(ImageFit.Contain)
-            }.width('20vp').height('20vp').backgroundColor("#a000e3")
-          }.height('30vp')
-        }.width('30%').margin({left:'15vp',top:'10vp'}).alignItems(HorizontalAlign.End)
-
-      }.width('100%').height('66vp').backgroundColor("#a000e3")
-
-      Grid(this.scroller){
-        ForEach([...new Array(this.images.length).keys()], (index: number) =>{
-          GridItem(){
-            Column(){
-              Navigator({ target: './ImageScreen', type: NavigationType.Push }) {
-                if((index+1)%4 == 1) {
-                  Image(this.images[index].imagePath)
-                    .objectFit(ImageFit.Fill)
-                    .width('161vp')
-                    .height('167vp')
-                    .margin({ top: '33vp' })
-                }
-                else if((index+1)%4 == 0){
-                  Image(this.images[index].imagePath)
-                    .objectFit(ImageFit.Fill)
-                    .width('161vp')
-                    .height('167vp')
-                    .margin({ top: '23vp' })
-                }
-                else{
-                  Image(this.images[index].imagePath)
-                    .objectFit(ImageFit.Fill)
-                    .width('161vp')
-                    .height('233vp')
-                }
-
-              }.params({showImage: this.images[index], target:'./WovenImageList'})
-
-              Text(this.images[index].title).height('19vp').fontSize('16vp').fontFamily("Times").fontWeight(FontWeight.Bold).margin({top:'5vp', left:'5vp',bottom:'5vp'})
+  build() {
+    Column({ space: 5 }) {
+      Grid(this.scroller) {
+        ForEach([...new Array(this.images.length).keys()], (index: number) => {
+          GridItem() {
+            Column() {
+              if ((index + 1) % 4 == 1) {
+                Image(this.images[index].imagePath)
+                  .objectFit(ImageFit.Fill)
+                  .width('161vp')
+                  .height('167vp')
+                  .margin({ top: '33vp' })
+              }
+              else if ((index + 1) % 4 == 0) {
+                Image(this.images[index].imagePath)
+                  .objectFit(ImageFit.Fill)
+                  .width('161vp')
+                  .height('167vp')
+                  .margin({ top: '23vp' })
+              }
+              else {
+                Image(this.images[index].imagePath)
+                  .objectFit(ImageFit.Fill)
+                  .width('161vp')
+                  .height('233vp')
+              }
+              Text(this.images[index].title)
+                .height('19vp')
+                .fontSize('16vp')
+                .fontFamily("Times")
+                .fontWeight(FontWeight.Bold)
+                .margin({ top: '5vp', left: '5vp', bottom: '5vp' })
             }.width('100%').height('100%').alignItems(HorizontalAlign.Start)
 
           }
@@ -65,7 +61,7 @@ struct wovenImageList{
         })
       }
       .columnsTemplate('1fr 1fr')
-      .margin({bottom:'50vp'})
+      .margin({ bottom: '50vp' })
       .padding(5)
     }
   }

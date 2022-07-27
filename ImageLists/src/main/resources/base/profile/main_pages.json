@@ -1,9 +1,0 @@
-{
-  "src": [
-    "components/StandardImageList",
-    "components/QuiltedImageList",
-    "components/WovenImageList",
-    "components/MasonaryImageList",
-    "components/ImageScreen"
-  ]
-}
