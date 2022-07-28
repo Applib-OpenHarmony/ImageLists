@@ -1,0 +1,7 @@
+{
+  "src": [
+    "pages/MainScreen",
+    "pages/SelectedList"
+
+  ]
+}
