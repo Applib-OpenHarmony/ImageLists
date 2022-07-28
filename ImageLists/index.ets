@@ -14,8 +14,12 @@
  * limitations under the License.
  */
 
-export {ImageData,ImageSize} from './src/main/ets/components/ImageDataItem'
-export {standardImageList} from './src/main/ets/components/StandardImageList'
-export {wovenImageList} from './src/main/ets/components/WovenImageList'
-export {quiltedImageList} from './src/main/ets/components/QuiltedImageList'
-export {masonaryImageList} from './src/main/ets/components/MasonaryImageList'
+export { ImageData, ImageSize } from './src/main/ets/components/ImageDataItem'
+
+export { standardImageList } from './src/main/ets/components/StandardImageList'
+
+export { wovenImageList } from './src/main/ets/components/WovenImageList'
+
+export { quiltedImageList } from './src/main/ets/components/QuiltedImageList'
+
+export { masonaryImageList } from './src/main/ets/components/MasonaryImageList'
